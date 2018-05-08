@@ -1,6 +1,6 @@
 package com.test.mysql.bean;
 
-public class employees {
+public class Employees {
     private String emp_no;
     private String birth_date;
     private String first_name;

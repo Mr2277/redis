@@ -1,18 +1,10 @@
 package com.test.mysql.bean;
 
-public class dept_emp {
-    private int emp_no;
+public class Dept_manager {
     private String dept_no;
+    private int emp_no;
     private String from_date;
     private String to_date;
-
-    public int getEmp_no() {
-        return emp_no;
-    }
-
-    public void setEmp_no(int emp_no) {
-        this.emp_no = emp_no;
-    }
 
     public String getDept_no() {
         return dept_no;
@@ -20,6 +12,14 @@ public class dept_emp {
 
     public void setDept_no(String dept_no) {
         this.dept_no = dept_no;
+    }
+
+    public int getEmp_no() {
+        return emp_no;
+    }
+
+    public void setEmp_no(int emp_no) {
+        this.emp_no = emp_no;
     }
 
     public String getFrom_date() {

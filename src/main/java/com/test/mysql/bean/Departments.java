@@ -1,6 +1,6 @@
 package com.test.mysql.bean;
 
-public class departments {
+public class Departments {
     private String dept_no;
     private String dept_name;
 

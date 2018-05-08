@@ -1,6 +1,6 @@
 package com.test.mysql.bean;
 
-public class titles {
+public class Titles {
     private String emp_no;
     private String title;
     private String from_date;

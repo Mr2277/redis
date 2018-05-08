@@ -1,25 +1,25 @@
 package com.test.mysql.bean;
 
-public class salaries {
-    private String emp_no;
-    private String salary;
+public class Dept_emp {
+    private int emp_no;
+    private String dept_no;
     private String from_date;
     private String to_date;
 
-    public String getEmp_no() {
+    public int getEmp_no() {
         return emp_no;
     }
 
-    public void setEmp_no(String emp_no) {
+    public void setEmp_no(int emp_no) {
         this.emp_no = emp_no;
     }
 
-    public String getSalary() {
-        return salary;
+    public String getDept_no() {
+        return dept_no;
     }
 
-    public void setSalary(String salary) {
-        this.salary = salary;
+    public void setDept_no(String dept_no) {
+        this.dept_no = dept_no;
     }
 
     public String getFrom_date() {
