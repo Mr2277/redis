@@ -12,5 +12,7 @@ public class RunMysql {
        ApplicationContext ioc = new ClassPathXmlApplicationContext("spring_mybatis.xml");
        DepartmentsService service=ioc.getBean(DepartmentsService.class);
        Departments departments=service.findById("d009");
+       System.out.println(departments.getDept_no());
+       System.out.println(departments.getDept_name());
    }
 }

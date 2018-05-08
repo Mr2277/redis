@@ -24,7 +24,6 @@ public class DepartmentServiceImp implements DepartmentsService{
     }
 
     public Departments findById(String id) {
-        System.out.println("d");
         Departments departments=departmentsMapper.selectByPrimaryKey(id);
         return departments;
     }

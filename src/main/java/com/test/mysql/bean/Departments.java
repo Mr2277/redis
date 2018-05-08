@@ -1,5 +1,8 @@
 package com.test.mysql.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Departments {
     private String dept_no;
     private String dept_name;
