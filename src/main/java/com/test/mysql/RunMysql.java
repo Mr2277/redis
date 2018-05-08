@@ -3,6 +3,7 @@ package com.test.mysql;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import javax.xml.transform.Templates;
 import java.util.List;
@@ -18,6 +19,10 @@ public class RunMysql {
        System.out.println(list.size());
        for(int i=0;i<list.size();i++){
            System.out.println(list.get(i));
+       }
+       SqlRowSet s=templates.queryForRowSet("select * from departments");
+       while(s.next()){
+          // System.out.println(s.);
        }
    }
 }
