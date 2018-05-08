@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mysql.mapper.DeptempMapper">
+    <resultMap id="ResultDeptemp" type="com.test.mysql.bean.Dept_emp">
+        <id column="emp_no" property="emp_no" />
+        <result column="dept_no" property="dept_no" />
+        <result column="from_date" property="from_date"/>
+        <result column="to_date" property="to_date"/>
+    </resultMap>
+    <select id="innerjoincount" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM dept_emp INNER JOIN dept_manager
+        ON dept_emp.emp_no=dept_manager.emp_no
+    </select>
+</mapper>
