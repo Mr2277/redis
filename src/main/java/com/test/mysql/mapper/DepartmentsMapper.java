@@ -3,5 +3,5 @@ package com.test.mysql.mapper;
 import com.test.mysql.bean.Departments;
 
 public interface DepartmentsMapper {
-    Departments selectByPrimaryKey(Integer id);
+    Departments selectByPrimaryKey(String id);
 }
