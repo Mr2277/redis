@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,9 +17,19 @@ import java.util.Map;
 public class EmployeeServiceImp implements EmployeeService{
     @Autowired
     private EmployeeMapper employeeMapper;
-    public List<Employees> findAll() {
-        List<Employees>list=employeeMapper.selectAll();
-        return list;
+    public List<Employees> findAll(Jedis jedis) {
+        List<Employees> list;
+        if(jedis.hgetAll("findAll").isEmpty()) {
+            list = employeeMapper.selectAll();
+            return list;
+
+        }
+            else {
+            list=read(jedis,"findAll");
+            return list;
+
+        }
+
     }
 
     public void write(List<Employees> list, Jedis jedis) {
@@ -42,4 +53,26 @@ public class EmployeeServiceImp implements EmployeeService{
         }
         */
     }
-}
+
+    public List<Employees> read(Jedis jedis,String name) {
+        HashMap<String,String>map= (HashMap<String, String>) jedis.hgetAll("findAll");
+        List<Employees> list=new ArrayList<Employees>();
+        String str[];
+            for(String key:map.keySet()){
+                Employees employees=new Employees();
+                employees.setEmp_no(key);
+                str=map.get(key).split(",");
+                employees.setBirth_date(str[1]);
+                employees.setFirst_name(str[2]);
+                employees.setLast_name(str[3]);
+                employees.setGender(str[4]);
+                employees.setHire_date(str[5]);
+                list.add(employees);
+
+            }
+            return (List<Employees>) list;
+        }
+
+
+    }
+

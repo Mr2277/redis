@@ -11,10 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class RunMysql {
     public static void main(String[] args){
@@ -36,17 +33,17 @@ public class RunMysql {
        //jedis.select(0);
        //jedis.flushDB();
 
-         /*
+
 
        long start=System.currentTimeMillis();
-
-       List<Employees>list=employeeService.findAll();
-       employeeService.write(list,jedis);
+        jedis.hgetAll("findAll").isEmpty();
+       //List<Employees>list=employeeService.findAll(jedis);
+       //employeeService.write(list,jedis);
        long end=System.currentTimeMillis();
        System.out.println(end-start);
+       //System.out.println(jedis.hgetAll("findAll").isEmpty());
 
 
-       */
 
        //long start=System.currentTimeMillis();
 
@@ -72,14 +69,13 @@ public class RunMysql {
 
          */
 
+         /*
 
-       //System.out.println(jedis.keys("*").size());
-       //System.out.println(jedis.hgetAll("findAll").size());
        long start=System.currentTimeMillis();
 
        HashMap<String,String>map= (HashMap<String, String>) jedis.hgetAll("findAll");
        List<Employees>list=new ArrayList<Employees>();
-       long end=System.currentTimeMillis();
+     long   end=System.currentTimeMillis();
        System.out.println(end-start);
        String str[];
        for(String key:map.keySet()){
@@ -98,5 +94,12 @@ public class RunMysql {
        end=System.currentTimeMillis();
        System.out.println(end-start);
        System.out.println(list.size());
+
+            */
+
+
+
+
+
     }
 }
