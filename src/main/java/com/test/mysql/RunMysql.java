@@ -78,13 +78,25 @@ public class RunMysql {
        long start=System.currentTimeMillis();
 
        HashMap<String,String>map= (HashMap<String, String>) jedis.hgetAll("findAll");
+       List<Employees>list=new ArrayList<Employees>();
        long end=System.currentTimeMillis();
        System.out.println(end-start);
-
-       for(int i=0;i<map.size();i++){
+       String str[];
+       for(String key:map.keySet()){
           Employees employees=new Employees();
+          employees.setEmp_no(key);
+          str=map.get(key).split(",");
+          employees.setBirth_date(str[1]);
+          employees.setFirst_name(str[2]);
+          employees.setLast_name(str[3]);
+          employees.setGender(str[4]);
+          employees.setHire_date(str[5]);
+          list.add(employees);
+
        }
        //System.out.println(map.size());
-
-   }
+       end=System.currentTimeMillis();
+       System.out.println(end-start);
+       System.out.println(list.size());
+    }
 }
