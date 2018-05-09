@@ -19,9 +19,12 @@ public class RunMysql {
        //Departments departments=service.findById("d009");
        //System.out.println(ioc.getBean(DeptempService.class).innerjoinmanager());
        EmployeeService employeeService=ioc.getBean(EmployeeService.class);
-
-       List<Employees> list=employeeService.findAll();
-       System.out.println(list.size());
+       Long start=System.currentTimeMillis();
+       for(int i=0;i<10;i++) {
+          List<Employees> list = employeeService.findAll();
+       }
+       Long end=System.currentTimeMillis();
+       System.out.println(end-start);
 
    }
 }
