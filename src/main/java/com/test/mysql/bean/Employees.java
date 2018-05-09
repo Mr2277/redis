@@ -55,4 +55,9 @@ public class Employees {
     public void setHire_date(String hire_date) {
         this.hire_date = hire_date;
     }
+
+    @Override
+    public String toString() {
+        return emp_no+","+birth_date+","+first_name+","+last_name+","+gender+","+hire_date;
+    }
 }

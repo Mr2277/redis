@@ -24,7 +24,10 @@ public class TestRedis {
 
 
         Jedis redis = new Jedis("127.0.0.1", 6379, 400000);
+        Map<String, String> data = new HashMap<String, String>();
+
         //redis.auth("123456");
+        /*
          Map<String, String> data = new HashMap<String, String>();
          redis.select(0);
          redis.flushDB();
@@ -37,22 +40,22 @@ public class TestRedis {
          }
              long end = System.currentTimeMillis();
          System.out.println(end-start);
-         /*
+               */
              //System.out.println("hmset without pipeline used [" + (end - start) / 1000 + "] seconds ..");
              redis.select(0);
              redis.flushDB();
              //使用pipeline hmset
+        /*
              Pipeline p = redis.pipelined();
-             start = System.currentTimeMillis();
-             for (int i = 0; i < 10000; i++) {
+             long start = System.currentTimeMillis();
+             for (int i = 0; i < 1000000; i++) {
                  data.clear();
                  data.put("k_" + i, "v_" + i);
                  p.hmset("key_" + i, data);
              }
              p.sync();
-             end = System.currentTimeMillis();
-             System.out.println("dbsize:[" + redis.dbSize() + "] .. ");
-             System.out.println("hmset with pipeline used [" + (end - start) / 1000 + "] seconds ..");
+             long end = System.currentTimeMillis();
+             System.out.println(end-start);
              /*
              //hmget
              Set keys = redis.keys("*");
