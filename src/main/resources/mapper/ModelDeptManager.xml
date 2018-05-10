@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mysql.mapper.ModelDeptManager">
+    <select id="selectByPri" resultMap="deptManager" parameterType="java.lang.String">
+        SELECT * from
+        dept_manager,
+        departments,
+        employees
+        WHERE
+        dept_manager.dept_no=departments.dept_no
+        AND
+        dept_manager.emp_no=employees.emp_no
+        AND
+        dept_manager.emp_no=#{emp_no}
+    </select>
+    <resultMap id="deptManager" type="com.test.mysql.model.Dept_manager">
+        <result column="from_date" property="from_date"/>
+        <result column="to_date" property="to_date"/>
+        <association property="departments" column="dept_no" javaType="com.test.mysql.model.Departments">
+            <id column="dept_no" property="dept_no"/>
+            <result column="dept_name" property="dept_name"/>
+        </association>
+        <association property="employees" column="emp_no" javaType="com.test.mysql.model.Employees">
+             <id column="emp_no" property="emp_no"/>
+             <result column="birth_date" property="birth_date"/>
+             <result column="first_name" property="first_name"/>
+             <result column="last_name" property="last_name"/>
+             <result column="gender" property="gender"/>
+             <result column="hire_date" property="hire_date"/>
+        </association>
+    </resultMap>
+</mapper>

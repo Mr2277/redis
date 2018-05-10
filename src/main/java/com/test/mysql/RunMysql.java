@@ -1,6 +1,8 @@
 package com.test.mysql;
 
+import com.test.mysql.mapper.ModelDeptManager;
 import com.test.mysql.model.Dept_emp;
+import com.test.mysql.model.Dept_manager;
 import com.test.mysql.service.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -83,8 +85,20 @@ public class RunMysql {
        //ModelDepartmentService modelDepartmentService=ioc.getBean(ModelDepartmentService.class);
        //Departments departments=modelDepartmentService.findByPri("d008");
        //System.out.println(departments.getDept_no());
-       ModelDempEmpService modelDempEmp=ioc.getBean(ModelDempEmpService.class);
-       Dept_emp dept_emp=modelDempEmp.findByPri("49999");
-       System.out.println(dept_emp.getEmployees().getEmp_no());
+       //ModelDempEmpService modelDempEmp=ioc.getBean(ModelDempEmpService.class);
+       //Dept_emp dept_emp=modelDempEmp.findByPri("49999");
+       //System.out.println(dept_emp.getEmployees().getEmp_no());
+
+       //ModelDeptManagerService modelDeptManagerService=ioc.getBean(ModelDeptManagerService.class);
+
+       /*
+       ModelDempEmpService modelDempEmpService=ioc.getBean(ModelDempEmpService.class);
+       Long start =System.currentTimeMillis();
+       //Dept_manager deptManager=modelDeptManagerService.findByPri("110022");
+       Dept_emp dept_emp=modelDempEmpService.findByPri("110022");
+       Long end=System.currentTimeMillis();
+       System.out.println(end-start);
+       */
+
     }
 }
