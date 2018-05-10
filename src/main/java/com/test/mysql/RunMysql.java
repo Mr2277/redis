@@ -3,10 +3,13 @@ package com.test.mysql;
 import com.test.mysql.mapper.ModelDeptManager;
 import com.test.mysql.model.Dept_emp;
 import com.test.mysql.model.Dept_manager;
+import com.test.mysql.model.Salaries;
 import com.test.mysql.service.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import redis.clients.jedis.Jedis;
+
+import java.util.List;
 
 public class RunMysql {
     public static void main(String[] args){
@@ -100,5 +103,8 @@ public class RunMysql {
        System.out.println(end-start);
        */
 
+       ModelSalService modelSalService=ioc.getBean(ModelSalService.class);
+       List<Salaries>list=modelSalService.findAll();
+       System.out.println(list.size());
     }
 }

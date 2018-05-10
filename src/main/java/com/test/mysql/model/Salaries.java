@@ -8,7 +8,7 @@ public class Salaries {
     private Employees employees;
     private int salary;
     private String from_date;
-    private String to_data;
+    private String to_date;
 
     public Employees getEmployees() {
         return employees;
@@ -34,11 +34,11 @@ public class Salaries {
         this.from_date = from_date;
     }
 
-    public String getTo_data() {
-        return to_data;
+    public String getTo_date() {
+        return to_date;
     }
 
-    public void setTo_data(String to_data) {
-        this.to_data = to_data;
+    public void setTo_date(String to_date) {
+        this.to_date = to_date;
     }
 }
