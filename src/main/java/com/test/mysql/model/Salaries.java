@@ -1,5 +1,8 @@
 package com.test.mysql.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Salaries {
     //关联字段 emp_no
     private Employees employees;

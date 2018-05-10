@@ -1,10 +1,11 @@
 package com.test.mysql;
 
-import com.test.mysql.bean.Departments;
 import com.test.mysql.bean.Employees;
+import com.test.mysql.model.Departments;
 import com.test.mysql.service.DepartmentsService;
 import com.test.mysql.service.DeptempService;
 import com.test.mysql.service.EmployeeService;
+import com.test.mysql.service.ModelDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,25 +17,12 @@ import java.util.*;
 public class RunMysql {
     public static void main(String[] args){
        ApplicationContext ioc = new ClassPathXmlApplicationContext("spring_mybatis.xml");
-       //DepartmentsService service=ioc.getBean(DepartmentsService.class);
-       //Departments departments=service.findById("d009");
-       //System.out.println(ioc.getBean(DeptempService.class).innerjoinmanager());
-       EmployeeService employeeService=ioc.getBean(EmployeeService.class);
-       /*
-       Long start=System.currentTimeMillis();
-       for(int i=0;i<10;i++) {
-          List<Employees> list = employeeService.findAll();
-       }
-       Long end=System.currentTimeMillis();
-       System.out.println(end-start);
-       */
        Jedis jedis=new Jedis("127.0.0.1",6379);
 
-       //jedis.select(0);
-       //jedis.flushDB();
+       /*
 
 
-
+       EmployeeService employeeService=ioc.getBean(EmployeeService.class);
        long start=System.currentTimeMillis();
        // jedis.hgetAll("findAll").isEmpty();
        //List<Employees>list=employeeService.findAll(jedis);
@@ -100,8 +88,8 @@ public class RunMysql {
             */
 
 
-
-
-
+       ModelDepartmentService modelDepartmentService=ioc.getBean(ModelDepartmentService.class);
+       Departments departments=modelDepartmentService.findByPri("d008");
+       System.out.println(departments.getDept_no());
     }
 }

@@ -1,5 +1,8 @@
 package com.test.mysql.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Employees {
     private String emp_no;
     private String birth_date;
