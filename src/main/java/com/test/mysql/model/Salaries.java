@@ -1,12 +1,11 @@
 package com.test.mysql.model;
 
-public class Dept_emp {
-    //关联字段emp_no
+public class Salaries {
+    //关联字段 emp_no
     private Employees employees;
-    //关联字段 dept——no
-    private Departments departments;
+    private int salary;
     private String from_date;
-    private String to_date;
+    private String to_data;
 
     public Employees getEmployees() {
         return employees;
@@ -16,12 +15,12 @@ public class Dept_emp {
         this.employees = employees;
     }
 
-    public Departments getDepartments() {
-        return departments;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setDepartments(Departments departments) {
-        this.departments = departments;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public String getFrom_date() {
@@ -32,11 +31,11 @@ public class Dept_emp {
         this.from_date = from_date;
     }
 
-    public String getTo_date() {
-        return to_date;
+    public String getTo_data() {
+        return to_data;
     }
 
-    public void setTo_date(String to_date) {
-        this.to_date = to_date;
+    public void setTo_data(String to_data) {
+        this.to_data = to_data;
     }
 }

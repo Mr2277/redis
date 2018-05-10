@@ -1,10 +1,8 @@
 package com.test.mysql.model;
 
-public class Dept_emp {
-    //关联字段emp_no
+public class Titles {
     private Employees employees;
-    //关联字段 dept——no
-    private Departments departments;
+    private String title;
     private String from_date;
     private String to_date;
 
@@ -16,12 +14,12 @@ public class Dept_emp {
         this.employees = employees;
     }
 
-    public Departments getDepartments() {
-        return departments;
+    public String getTitle() {
+        return title;
     }
 
-    public void setDepartments(Departments departments) {
-        this.departments = departments;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getFrom_date() {
