@@ -1,18 +1,10 @@
 package com.test.mysql;
 
-import com.test.mysql.bean.Employees;
-import com.test.mysql.model.Departments;
-import com.test.mysql.service.DepartmentsService;
-import com.test.mysql.service.DeptempService;
-import com.test.mysql.service.EmployeeService;
-import com.test.mysql.service.ModelDepartmentService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.test.mysql.model.Dept_emp;
+import com.test.mysql.service.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
-
-import java.util.*;
 
 public class RunMysql {
     public static void main(String[] args){
@@ -88,8 +80,11 @@ public class RunMysql {
             */
 
 
-       ModelDepartmentService modelDepartmentService=ioc.getBean(ModelDepartmentService.class);
-       Departments departments=modelDepartmentService.findByPri("d008");
-       System.out.println(departments.getDept_no());
+       //ModelDepartmentService modelDepartmentService=ioc.getBean(ModelDepartmentService.class);
+       //Departments departments=modelDepartmentService.findByPri("d008");
+       //System.out.println(departments.getDept_no());
+       ModelDempEmpService modelDempEmp=ioc.getBean(ModelDempEmpService.class);
+       Dept_emp dept_emp=modelDempEmp.findByPri("49999");
+       System.out.println(dept_emp.getEmployees().getEmp_no());
     }
 }
