@@ -8,4 +8,5 @@ import java.util.List;
 @Resource
 public interface EmployeeMapper {
     List<Employees>selectAll();
+    Employees selectByPrimary(String id);
 }

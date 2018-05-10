@@ -13,4 +13,7 @@
     <select id="selectAll" resultMap="Result">
         SELECT *FROM employees;
     </select>
+    <select id="selectByPrimary" resultMap="Result"  parameterType="java.lang.String" >
+        SELECT * FROM employees WHERE emp_no=#{id}
+    </select>
 </mapper>

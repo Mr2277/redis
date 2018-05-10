@@ -73,6 +73,10 @@ public class EmployeeServiceImp implements EmployeeService{
             return (List<Employees>) list;
         }
 
-
+    public Employees findByKey(String id) {
+       return employeeMapper.selectByPrimary(id);
     }
+
+
+}
 

@@ -36,11 +36,13 @@ public class RunMysql {
 
 
        long start=System.currentTimeMillis();
-        jedis.hgetAll("findAll").isEmpty();
+       // jedis.hgetAll("findAll").isEmpty();
        //List<Employees>list=employeeService.findAll(jedis);
        //employeeService.write(list,jedis);
+       Employees employees=employeeService.findByKey("499999");
        long end=System.currentTimeMillis();
        System.out.println(end-start);
+       System.out.println(employees.toString());
        //System.out.println(jedis.hgetAll("findAll").isEmpty());
 
 

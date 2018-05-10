@@ -11,4 +11,5 @@ public interface EmployeeService {
     List<Employees>findAll(Jedis jedis);
     void write(List<Employees>list, Jedis jedis);
     List<Employees> read(Jedis jedis,String name);
+    Employees findByKey(String id);
 }
