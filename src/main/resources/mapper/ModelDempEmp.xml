@@ -46,7 +46,7 @@
      </association>
  </resultMap>
  <select id="findAll" resultMap="result">
-     SELECT dept_emp.*
+     SELECT *
      FROM departments,dept_emp,employees
      WHERE dept_emp.emp_no=employees.emp_no
      AND   dept_emp.dept_no=departments.dept_no

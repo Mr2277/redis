@@ -4,6 +4,7 @@ import com.test.mysql.mapper.ModelDeptManager;
 import com.test.mysql.model.Dept_emp;
 import com.test.mysql.model.Dept_manager;
 import com.test.mysql.model.Salaries;
+import com.test.mysql.model.Titles;
 import com.test.mysql.service.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -112,21 +113,35 @@ public class RunMysql {
        System.out.println(list.size());
 
            */
-
+           /*
           ModelDempEmpService modelDempEmpService=ioc.getBean(ModelDempEmpService.class);
           Long start=System.currentTimeMillis();
-         // List<Dept_emp> list=modelDempEmpService.findAll();
-          List<Map<String,Integer>>list= modelDempEmpService.count();
+          List<Dept_emp> list=modelDempEmpService.findAll();
+
+         // List<Map<String,Integer>>list= modelDempEmpService.count();
 
           Long end=System.currentTimeMillis();
-          //System.out.println(end-start);
+          System.out.println(end-start);
+        /*
           System.out.println(list.size());
           for(Map<String,Integer> m:list){
               System.out.println(m.keySet());
               System.out.println(m.values());
           }
 
+           */
+            /*
+           ModelSalService modelSalService=ioc.getBean(ModelSalService.class);
+           Long start=System.currentTimeMillis();
+           List<Salaries>list=modelSalService.findAll();
+           Long end=System.currentTimeMillis();
+           System.out.println(end-start);
+           */
 
+
+            ModelTiService modelTiService=ioc.getBean(ModelTiService.class);
+            List<Titles>list=modelTiService.findAll();
+            System.out.println(list.size());
     }
 
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mysql.mapper.ModelTi">
+    <resultMap id="resu" type="com.test.mysql.model.Titles">
+        <result column="title" property="title"></result>
+        <result column="from_date" property="from_date"></result>
+        <result column="to_date" property="to_date"></result>
+        <association property="employees" column="emp_no" select="emp"></association>
+    </resultMap>
+    <select id="emp" resultType="com.test.mysql.model.Employees">
+        SELECT * FROM employees;
+    </select>
+    <select id="" resultMap="resu">
+        SELECT * FROM titles ;
+    </select>
+    <resultMap id="result" type="com.test.mysql.model.Titles">
+        <result column="title" property="title"></result>
+        <result column="from_date" property="from_date"></result>
+        <result column="to_date" property="to_date"></result>
+        <association property="employees" column="emp_no" javaType="com.test.mysql.model.Employees">
+            <id column="emp_no" property="emp_no"/>
+            <result column="birth_date" property="birth_date"/>
+            <result column="first_name" property="first_name"/>
+            <result column="last_name" property="last_name"/>
+            <result column="gender" property="gender"/>
+            <result column="hire_date" property="hire_date"/>
+        </association>
+    </resultMap>
+    <select id="selectAll" resultMap="result">
+        SELECT * FROM employees,titles WHERE employees.emp_no=titles.emp_no
+    </select>
+</mapper>
