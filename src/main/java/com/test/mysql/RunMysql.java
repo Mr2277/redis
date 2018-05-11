@@ -1,5 +1,6 @@
 package com.test.mysql;
 
+import com.test.mysql.bean.Titles;
 import com.test.mysql.mapper.ModelDeptManager;
 import com.test.mysql.model.*;
 import com.test.mysql.service.*;
@@ -141,9 +142,16 @@ public class RunMysql {
             System.out.println(list.size());
 
             */
+
+              /*
             ModelEmpService modelEmpService=ioc.getBean(ModelEmpService.class);
             List<Employees>list=modelEmpService.findAll();
             System.out.println(list.size());
+            */
+
+              TitlesService titlesService=ioc.getBean(TitlesService.class);
+              List<Titles>list=titlesService.findAll();
+              System.out.println(list.size());
     }
 
 
