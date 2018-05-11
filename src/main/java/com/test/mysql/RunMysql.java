@@ -103,8 +103,20 @@ public class RunMysql {
        System.out.println(end-start);
        */
 
+          /*
+
        ModelSalService modelSalService=ioc.getBean(ModelSalService.class);
        List<Salaries>list=modelSalService.findAll();
        System.out.println(list.size());
+
+           */
+
+          ModelDempEmpService modelDempEmpService=ioc.getBean(ModelDempEmpService.class);
+          Long start=System.currentTimeMillis();
+          List<Dept_emp> list=modelDempEmpService.findAll();
+          Long end=System.currentTimeMillis();
+          System.out.println(end-start);
+
+
     }
 }
