@@ -1,10 +1,7 @@
 package com.test.mysql;
 
 import com.test.mysql.mapper.ModelDeptManager;
-import com.test.mysql.model.Dept_emp;
-import com.test.mysql.model.Dept_manager;
-import com.test.mysql.model.Salaries;
-import com.test.mysql.model.Titles;
+import com.test.mysql.model.*;
 import com.test.mysql.service.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -144,6 +141,9 @@ public class RunMysql {
             System.out.println(list.size());
 
             */
+            ModelEmpService modelEmpService=ioc.getBean(ModelEmpService.class);
+            List<Employees>list=modelEmpService.findAll();
+            System.out.println(list.size());
     }
 
 
