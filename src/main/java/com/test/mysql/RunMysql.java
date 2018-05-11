@@ -9,7 +9,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import redis.clients.jedis.Jedis;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RunMysql {
     public static void main(String[] args){
@@ -113,9 +115,14 @@ public class RunMysql {
 
           ModelDempEmpService modelDempEmpService=ioc.getBean(ModelDempEmpService.class);
           Long start=System.currentTimeMillis();
-          List<Dept_emp> list=modelDempEmpService.findAll();
+         // List<Dept_emp> list=modelDempEmpService.findAll();
+          List<Map<String,Integer>>list= modelDempEmpService.count();
+
           Long end=System.currentTimeMillis();
-          System.out.println(end-start);
+          //System.out.println(end-start);
+          System.out.println(list.size());
+
+
 
     }
 

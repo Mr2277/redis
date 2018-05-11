@@ -6,7 +6,9 @@ import com.test.mysql.service.ModelDempEmpService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ModelDempEmpServiceImp implements ModelDempEmpService {
@@ -18,6 +20,10 @@ public class ModelDempEmpServiceImp implements ModelDempEmpService {
 
     public List<Dept_emp> findAll() {
         return modelDempEmp.findAll();
+    }
+
+    public List<Map<String,Integer>> count() {
+        return modelDempEmp.selectCount();
     }
 
 

@@ -7,11 +7,8 @@
         <result column="to_date" property="to_date"/>
         <association property="employees"   column="emp_no" select="selectempByPri"></association>
         <association property="departments" column="dept_no" select="selectdeptByPri"></association>
-        <!--
 
-<result column="from_date" property="from_date"/>
-<result column="to_date" property="to_date"/>
--->
+
     </resultMap>
     <select id="selectdeptByPri" resultType="com.test.mysql.model.Departments" parameterType="java.lang.String">
         <!--
@@ -29,11 +26,38 @@
         SELECT * FROM employees WHERE emp_no=#{emp_no}
 
     </select>
-    <select id="findAll" resultMap="ModelDeptEmp">
-        SELECT  * FROM dept_emp;
+
+
+
+ <resultMap id="result" type="com.test.mysql.model.Dept_emp">
+     <result column="from_date" property="from_date"/>
+     <result column="to_date" property="to_date"/>
+     <association property="employees" column="emp_no" javaType="com.test.mysql.model.Employees">
+         <id column="emp_no" property="emp_no"/>
+         <result column="birth_date" property="birth_date"/>
+         <result column="first_name" property="first_name"/>
+         <result column="last_name" property="last_name"/>
+         <result column="gender" property="gender"/>
+         <result column="hire_date" property="hire_date"/>
+     </association>
+     <association property="departments" column="dept_no" javaType="com.test.mysql.model.Departments">
+         <id column="dept_no" property="dept_no"></id>
+         <result column="dept_name" property="dept_name"></result>
+     </association>
+ </resultMap>
+ <select id="findAll" resultMap="result">
+     SELECT dept_emp.*
+     FROM departments,dept_emp,employees
+     WHERE dept_emp.emp_no=employees.emp_no
+     AND   dept_emp.dept_no=departments.dept_no
+
+ </select>
+
+    <select id="selectCount" resultType="java.util.Map">
+     SELECT dept_emp.dept_no,count(dept_emp.dept_no)
+     FROM departments,dept_emp,employees
+     WHERE dept_emp.emp_no=employees.emp_no
+     AND   dept_emp.dept_no=departments.dept_no
+     GROUP BY (dept_emp.dept_no)
     </select>
-
-
-
-
 </mapper>
