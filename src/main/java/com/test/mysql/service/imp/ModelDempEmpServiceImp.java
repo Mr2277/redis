@@ -6,6 +6,7 @@ import com.test.mysql.service.ModelDempEmpService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class ModelDempEmpServiceImp implements ModelDempEmpService {
@@ -14,4 +15,10 @@ public class ModelDempEmpServiceImp implements ModelDempEmpService {
     public Dept_emp findByPri(String emp_no) {
         return modelDempEmp.selectByPri(emp_no);
     }
+
+    public List<Dept_emp> findAll() {
+        return modelDempEmp.findAll();
+    }
+
+
 }

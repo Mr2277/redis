@@ -22,4 +22,7 @@
     <select id="selectempByPri" resultType="com.test.mysql.model.Employees" parameterType="java.lang.String">
         SELECT emp_no FROM employees WHERE emp_no=#{emp_no}
     </select>
+    <select id="findAll" resultMap="ModelDeptEmp">
+        SELECT  * FROM dept_emp;
+    </select>
 </mapper>
