@@ -121,7 +121,10 @@ public class RunMysql {
           Long end=System.currentTimeMillis();
           //System.out.println(end-start);
           System.out.println(list.size());
-
+          for(Map<String,Integer> m:list){
+              System.out.println(m.keySet());
+              System.out.println(m.values());
+          }
 
 
     }
