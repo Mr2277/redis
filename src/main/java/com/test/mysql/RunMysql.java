@@ -138,10 +138,12 @@ public class RunMysql {
            System.out.println(end-start);
            */
 
-
+              /*
             ModelTiService modelTiService=ioc.getBean(ModelTiService.class);
             List<Titles>list=modelTiService.findAll();
             System.out.println(list.size());
+
+            */
     }
 
 
