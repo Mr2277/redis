@@ -117,6 +117,7 @@ public class RunMysql {
           Long end=System.currentTimeMillis();
           System.out.println(end-start);
 
-
     }
+
+
 }

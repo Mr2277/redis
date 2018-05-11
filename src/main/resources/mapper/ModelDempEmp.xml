@@ -14,15 +14,26 @@
 -->
     </resultMap>
     <select id="selectdeptByPri" resultType="com.test.mysql.model.Departments" parameterType="java.lang.String">
+        <!--
         SELECT dept_no FROM departments WHERE dept_no=#{dept_no}
+        -->
+        SELECT * FROM departments WHERE dept_no=#{dept_no}
     </select>
     <select id="selectByPri" resultMap="ModelDeptEmp" parameterType="java.lang.String">
         SELECT * FROM dept_emp WHERE emp_no=#{emp_no}
     </select>
     <select id="selectempByPri" resultType="com.test.mysql.model.Employees" parameterType="java.lang.String">
+        <!--
         SELECT emp_no FROM employees WHERE emp_no=#{emp_no}
+        -->
+        SELECT * FROM employees WHERE emp_no=#{emp_no}
+
     </select>
     <select id="findAll" resultMap="ModelDeptEmp">
         SELECT  * FROM dept_emp;
     </select>
+
+
+
+
 </mapper>
