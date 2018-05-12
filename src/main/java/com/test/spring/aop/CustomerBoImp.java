@@ -1,5 +1,8 @@
 package com.test.spring.aop;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CustomerBoImp implements CustomerBo{
     public void addCustomer() {
         System.out.println("addCustomer() is running ");

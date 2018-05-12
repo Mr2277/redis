@@ -1,5 +1,8 @@
 package com.test.spring.aop;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public interface CustomerBo {
     void addCustomer();
 
