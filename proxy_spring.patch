@@ -1,0 +1,73 @@
+Index: src/main/java/com/test/spring/aop/CustomerBo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/test/spring/aop/CustomerBo.java	(date 1526118107000)
++++ src/main/java/com/test/spring/aop/CustomerBo.java	(date 1526118107000)
+@@ -0,0 +1,11 @@
++package com.test.spring.aop;
++
++public interface CustomerBo {
++    void addCustomer();
++
++    String addCustomerReturnValue();
++
++    void addCustomerThrowException() throws Exception;
++
++    void addCustomerAround(String name);
++}
+Index: src/main/java/com/test/spring/aop/CustomerBoImp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/test/spring/aop/CustomerBoImp.java	(date 1526118217000)
++++ src/main/java/com/test/spring/aop/CustomerBoImp.java	(date 1526118217000)
+@@ -0,0 +1,21 @@
++package com.test.spring.aop;
++
++public class CustomerBoImp implements CustomerBo{
++    public void addCustomer() {
++        System.out.println("addCustomer() is running ");
++    }
++
++    public String addCustomerReturnValue() {
++        System.out.println("addCustomerReturnValue() is running ");
++        return "abc";
++    }
++
++    public void addCustomerThrowException() throws Exception {
++        System.out.println("addCustomerThrowException() is running ");
++        throw new Exception("Generic Error");
++    }
++
++    public void addCustomerAround(String name) {
++        System.out.println("addCustomerAround() is running, args : " + name);
++    }
++}
+Index: src/main/resources/spring_mybatis.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/spring_mybatis.xml	(revision 62942828fba26f286eafcdd937980272a3d67293)
++++ src/main/resources/spring_mybatis.xml	(date 1526118283000)
+@@ -2,14 +2,15 @@
+ <!--suppress ALL -->
+ <beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++       xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+-    <context:component-scan base-package="com.test.mysql.*"/>
+-
++    <context:component-scan base-package="com.*"/>
++    <aop:aspectj-autoproxy />
+     <bean id="propertyconfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+           <property name="locations">
+               <list>
