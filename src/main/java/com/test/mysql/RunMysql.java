@@ -152,7 +152,7 @@ public class RunMysql {
               TitlesService titlesService=ioc.getBean(TitlesService.class);
               
               List<Titles>list=titlesService.findAll();
-              System.out.println(list.size());
+              //System.out.println(list.size());
     }
 
 

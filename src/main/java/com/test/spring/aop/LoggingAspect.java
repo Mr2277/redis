@@ -1,5 +1,6 @@
 package com.test.spring.aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -15,15 +16,11 @@ public class LoggingAspect {
         //System.out.println("hijacked : " + joinYiibai.getSignature().getName());
         System.out.println("******");
     }
-    @Around("execution(* com.test.spring.aop.CustomerBo.addCustomer(..))")
-    public void logAround() throws Throwable {
-
-        System.out.println("logAround() is running!");
-        //System.out.println("hijacked method : " + joinYiibai.getSignature().getName());
-        //System.out.println("hijacked arguments : " + Arrays.toString(joinYiibai.getArgs()));
-
+    @Around("execution(* com.test.spring.aop.CustomerBo.addCustomerAround(..))")
+    public void logAround(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("Around before is running!");
-        //joinYiibai.proceed(); //continue on the intercepted method
+        pjp.proceed(); //continue on the intercepted method
+        System.out.println(pjp.getTarget().toString());
         System.out.println("Around after is running!");
 
         System.out.println("******");

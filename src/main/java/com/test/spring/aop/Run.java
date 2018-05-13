@@ -7,6 +7,7 @@ public class Run {
     public static void main(String[] args){
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring_mybatis.xml");
         CustomerBo customerBo=applicationContext.getBean(CustomerBo.class);
-        customerBo.addCustomer();
+        //customerBo.addCustomer();
+        customerBo.addCustomerAround("d");
     }
 }
