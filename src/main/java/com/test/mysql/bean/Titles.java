@@ -1,5 +1,8 @@
 package com.test.mysql.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Titles {
     private String emp_no;
     private String title;

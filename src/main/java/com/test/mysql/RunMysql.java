@@ -1,5 +1,6 @@
 package com.test.mysql;
 
+import com.test.mysql.bean.Salaries;
 import com.test.mysql.bean.Titles;
 import com.test.mysql.mapper.ModelDeptManager;
 import com.test.mysql.model.*;
@@ -15,7 +16,7 @@ import java.util.Map;
 public class RunMysql {
     public static void main(String[] args){
        ApplicationContext ioc = new ClassPathXmlApplicationContext("spring_mybatis.xml");
-       Jedis jedis=new Jedis("127.0.0.1",6379);
+       //Jedis jedis=new Jedis("127.0.0.1",6379);
 
        /*
 
@@ -149,10 +150,15 @@ public class RunMysql {
             System.out.println(list.size());
             */
 
-              TitlesService titlesService=ioc.getBean(TitlesService.class);
-              
-              List<Titles>list=titlesService.findAll();
-              //System.out.println(list.size());
+              //TitlesService titlesService=ioc.getBean(TitlesService.class);
+              //List<Titles>list=titlesService.findAll();
+             // System.out.println(list.size());
+
+
+               SalariesService salariesService=ioc.getBean(SalariesService.class);
+               salariesService.findAll();
+               //System.out.println(list.size());
+
     }
 
 

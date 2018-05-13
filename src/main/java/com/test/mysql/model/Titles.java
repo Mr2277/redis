@@ -2,7 +2,7 @@ package com.test.mysql.model;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Titles {
     private Employees employees;
     private String title;
