@@ -1,4 +1,4 @@
-package com.test.spring.reflect;
+package com.test.spring.reflect.one;
 
 public class Student4 {
     private String name;

@@ -5,11 +5,13 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 public class ADynaProxy implements InvocationHandler{
-    private Object target;
+    //private Object target;
+    /*
     public Object bind(Object o){
-        this.target=o;
+        //this.target=o;
         return Proxy.newProxyInstance(this.target.getClass().getClassLoader(),this.target.getClass().getInterfaces(),this);
     }
+    */
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         /*
         Method [] methods=proxy.getClass().getMethods();
@@ -26,6 +28,8 @@ public class ADynaProxy implements InvocationHandler{
         BImp bImp= (BImp) c.newInstance();
         Method method1=c.getMethod(method.getName());
         method1.invoke(bImp,args);
+        Class<?>tClass=AImp.class;
+        method.invoke(tClass.newInstance(),args);
         //method.invoke(target,args);
         return null;
     }

@@ -1,11 +1,11 @@
-package com.test.spring.reflect;
+package com.test.spring.reflect.one;
 
 import java.lang.reflect.Method;
 
 public class RefletInvokeDemo {
     public static void main(String[] args) throws Exception {
 
-        Class<?> cls = Class.forName("com.test.spring.reflect.Student4");
+        Class<?> cls = Class.forName("com.test.spring.reflect.one.Student4");
         // 实例化对象
         /*
         Object obj = cls.newInstance();
