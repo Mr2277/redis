@@ -12,8 +12,12 @@ public class DynaProxyHello implements InvocationHandler{
     }
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object result=null;
-        //System.out.println(proxy.toString());
+        System.out.println("invoke");
+        System.out.println();
         result=method.invoke(this.target,args);
         return result;
+    }
+    public void print(){
+        System.out.println("proxy");
     }
 }
