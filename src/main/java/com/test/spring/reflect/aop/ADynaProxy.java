@@ -22,8 +22,11 @@ public class ADynaProxy implements InvocationHandler{
         //Class<A> a=A.class;
         //a.newInstance();
         //Object o=new Object();
-
-        method.invoke(target,args);
+        Class<?> c=BImp.class;
+        BImp bImp= (BImp) c.newInstance();
+        Method method1=c.getMethod(method.getName());
+        method1.invoke(bImp,args);
+        //method.invoke(target,args);
         return null;
     }
 
