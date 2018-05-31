@@ -16,7 +16,11 @@ import java.util.Map;
 public class RunMysql {
     public static void main(String[] args){
        ApplicationContext ioc = new ClassPathXmlApplicationContext("spring_mybatis.xml");
+<<<<<<< Updated upstream
        //Jedis jedis=new Jedis("127.0.0.1",6379);
+=======
+       Jedis jedis=new Jedis("192.168.0.104",6379);
+>>>>>>> Stashed changes
 
        /*
 
